@@ -16,10 +16,10 @@ macro "create montage" {
 	run("Select All");
 	run("Copy");
 	close();
-	newImage(sample, "16-bit white", 480, 275, 1);
+	newImage(sample, "8-bit white", 480, 275, 1);
 	makeRectangle(0, 0, 480, 130);
 	run("Paste");
-	run("Invert");
+	//run("Invert");
 	open(file2);
 	run("Rotate 90 Degrees Left");
 	run("Select All");
@@ -27,7 +27,7 @@ macro "create montage" {
 	close();
 	makeRectangle(0, 145, 480, 130);
 	run("Paste");
-	run("Invert");
-	saveAs("Tiff", path);
+	//run("Invert");
+	saveAs("Jpeg", path);
 	close();
 }

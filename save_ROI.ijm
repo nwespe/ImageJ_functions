@@ -17,8 +17,8 @@ macro "save ROI" {
 	setBatchMode(true);
 	makeRectangle(x, y, w, h);
 	run("Copy");
-	newImage(sample, "16-bit black", w, h, 1);
+	newImage(sample, "8-bit black", w, h, 1);
 	run("Paste");
-	saveAs("Tiff", path);
+	saveAs("Jpeg", path);
 	close();
 }

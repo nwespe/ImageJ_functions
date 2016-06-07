@@ -8,7 +8,8 @@ __author__ = 'Nichole Wespe'
 imp = IJ.getImage()
 directory = IJ.getDirectory("image")
 f = str(imp.getTitle())
-date, rows, columns, time = str.split(f) # deconstruct filename - need to remove .tif from time
+date, rows, columns, time_tif = str.split(f)  # deconstruct filename
+time = time_tif.replace('tif','jpg')  # need to remove .tif from time
 row_IDs = list(6*rows[0] + 6*rows[1])
 column_IDs = [str(i) for i in 2*(range(int(columns[0]), int(columns[0]) + 6))]
 zipped = zip(row_IDs, column_IDs)
@@ -25,7 +26,7 @@ adjDir = os.path.join(directory, "Adjusted")
 if not os.path.exists(adjDir):
 	os.mkdir(adjDir)
 adjImage = os.path.join(adjDir, "Adj " + f)
-IJ.saveAs("Tiff", adjImage)
+IJ.saveAs("Jpeg", adjImage)
 
 ## make ROI list
 w = 130
