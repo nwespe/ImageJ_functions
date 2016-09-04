@@ -1,0 +1,33 @@
+macro "create montage" {
+	Dialog.create("Create Montage");
+	Dialog.addString("sample:", "new");
+	Dialog.addString("file1:", "new");
+	Dialog.addString("file2:", "new");
+	Dialog.addString("path:", "new");
+	Dialog.show();
+	sample = Dialog.getString();
+	file1 = Dialog.getString();
+	file2 = Dialog.getString();
+	path = Dialog.getString();
+	// print("Values received are "+sample+" "+file1+" "+file2+" "+path);
+	setBatchMode(true);
+	open(file1);
+	run("Rotate 90 Degrees Left");
+	run("Select All");
+	run("Copy");
+	close();
+	newImage(sample, "8-bit white", 480, 275, 1);
+	makeRectangle(0, 0, 480, 130);
+	run("Paste");
+	//run("Invert");
+	open(file2);
+	run("Rotate 90 Degrees Left");
+	run("Select All");
+	run("Copy");
+	close();
+	makeRectangle(0, 145, 480, 130);
+	run("Paste");
+	//run("Invert");
+	saveAs("Jpeg", path);
+	close();
+}
