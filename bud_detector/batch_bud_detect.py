@@ -27,7 +27,7 @@ for d in os.listdir(inputDir):
                "] file=[" + f + "] path=[" + path + "] number=[" + n + "]"
         Macro.setOptions(Thread.currentThread(), args)
         IJ.run("detect buds", args)
-        n+=1
+        n += 1
     IJ.saveAs("Results", outputDir + "/" + strain + "_results.csv")
     IJ.selectWindow("Results")
     IJ.run("Close")
